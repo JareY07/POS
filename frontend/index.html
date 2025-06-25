@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto de venta</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Punto de Venta</h1>
+            <div class="header-actions">
+                <a href="crear-producto.html" class="btn">Nuevo Producto</a>
+                <div class="user-info">
+                    <span id="username"></span>
+                    <button id="logoutBtn">Cerrar sesión</button>
+                </div>
+            </div>
+        </header>
+        <!-- Sección de Productos -->
+        <section class="productos">
+            <h2>Productos Disponibles</h2>
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Buscar producto...">
+            </div>
+            <div class="productos-grid" id="productos-container">
+                <!-- Productos cargados dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Carrito de Compras -->
+        <section class="carrito">
+            <h2>Carrito</h2>
+            <div class="carrito-items" id="carrito-items">
+                <!-- Items agregados dinámicamente -->
+            </div>
+            <div class="carrito-total">
+                <p>Total: <span id="total">$0.00</span></p>
+                <button id="checkout-btn">Finalizar Venta</button>
+            </div>
+        </section>
+    </div>
+
+    <script type="module" src="scripts/api.js"></script>
+    <script type="module" src="scripts/app.js"></script>
+</body>
+
+</html>
