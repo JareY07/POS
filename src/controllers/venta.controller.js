@@ -14,11 +14,7 @@ export const crearVenta = async (req, res) => {
       throw new Error("Usuario no autenticado correctamente");
     }
 
-    // Usa este ID temporalmente para pruebas
-    const usuarioId = req.user?.id || 1; // ← Eliminar después de pruebas
-
     console.log("Datos recibidos:", req.body); // ← Para debug
-
     const { clienteId, productos } = req.body;
 
     // Validación manual adicional

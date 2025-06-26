@@ -1,7 +1,5 @@
 import { createPool } from "mysql2/promise";
 import dotenv from "dotenv";
-
-// Cargar variables de entorno
 dotenv.config();
 
 // Validar variables críticas

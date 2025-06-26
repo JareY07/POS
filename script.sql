@@ -56,7 +56,6 @@ CREATE TABLE DetalleVenta (
     ProductoId INT NOT NULL,
     Cantidad INT NOT NULL,
     PrecioUnitario DOUBLE NOT NULL,
-    Subtotal DOUBLE NOT NULL,
     FOREIGN KEY (VentaId) REFERENCES Venta(Id) ON DELETE CASCADE,
     FOREIGN KEY (ProductoId) REFERENCES Producto(Id)
 );
@@ -77,7 +76,7 @@ CREATE TABLE usuario (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(150) NOT NULL,
   email VARCHAR(150) NOT NULL UNIQUE,
-  password VARCHAR(255) NOT NULL,  -- En producción usa VARCHAR(255) para contraseñas hasheadas
+  password VARCHAR(255) NOT NULL, 
   activo TINYINT(1) DEFAULT 1,
   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -90,7 +89,7 @@ CREATE INDEX idx_detalle_venta ON DetalleVenta(VentaId);
 CREATE INDEX idx_detalle_producto ON DetalleVenta(ProductoId);
 CREATE INDEX idx_historial_registro ON Historial(TablaAfectada, IdRegistroAfectado);
 
--- Datos iniciales para pruebas (opcional)
+-- Datos iniciales
 INSERT INTO Cuenta (NumeroCuenta, TipoCuenta, Saldo, FechaApertura) VALUES 
 ('CTE-001', 'CORRIENTE', 10000.00, CURDATE()),
 ('AHO-001', 'AHORROS', 5000.00, CURDATE());
@@ -106,3 +105,6 @@ INSERT INTO Producto (NombreProducto, Descripcion, PrecioUnitario, Existencia, C
 
 INSERT INTO usuario (nombre, email, password) 
 VALUES ('Admin POS', 'admin@pos.com', '123456');
+
+INSERT INTO usuario (nombre, email, password) 
+VALUES ('Admin POS', 'admin@example.com', 'password');

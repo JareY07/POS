@@ -10,14 +10,13 @@ router.post("/login", async (req, res) => {
     const user = await Usuario.findByEmail(email);
 
     if (!user || user.password !== password) {
-      // ¡Recuerda usar bcrypt en producción!
       return res.status(401).json({ message: "Credenciales incorrectas" });
     }
 
     // Payload debe incluir el ID mínimo
     const token = jwt.sign(
       {
-        id: user.id, // ← Este debe coincidir con la DB
+        id: user.id,
         email: user.email,
       },
       process.env.JWT_SECRET,
@@ -38,8 +37,4 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// Exporta el router como exportación nombrada
 export { router as authRoutes };
-
-// O como exportación por defecto (elige una opción)
-// export default router;

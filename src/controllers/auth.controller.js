@@ -11,7 +11,7 @@ export const login = async (req, res) => {
     // Payload debe incluir el ID
     const token = jwt.sign(
       {
-        id: usuario.id, // ← Esto es crítico
+        id: usuario.id,
         email: usuario.email,
         nombre: usuario.nombre,
       },

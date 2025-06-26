@@ -18,7 +18,7 @@ export const validate = (validations) => {
         msg: err.msg,
         location: err.location,
       })),
-      receivedData: req.body, // Opcional: muestra los datos recibidos
+      receivedData: req.body, // muestra los datos recibidos
     });
   };
 };
